@@ -43,10 +43,11 @@ if __name__ == "__main__":
     parameters = SearchParameters(
         search_operations=["sale"],
         city="Toulouse",
+        zip_code=31_000,
         price_from=700_000,
         plot_area_from=2000,
         total_area_from=200,
-        created_date_from="2023-06-01",
+        # created_date_from="2023-06-01",
     )
     properties = fetch_properties(parameters)
     with open("casafari2.json", "w") as f:
