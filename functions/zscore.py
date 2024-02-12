@@ -52,9 +52,8 @@ def compute_weighted_zscore(properties_with_z_scores):
         if column in weights:
             z_score_values = properties_with_z_scores[column]
             # Apply weights only to non-NaN z-score values
-            weighted_scores = np.where(
-                np.isnan(z_score_values), 0, z_score_values * weights[column]
-            )
+            z_score_values = z_score_values.replace(np.nan, 0)
+            weighted_scores = z_score_values * weights[column]
             properties_with_z_scores["weighted_score"] += weighted_scores
 
     return properties_with_z_scores
