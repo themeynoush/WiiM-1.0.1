@@ -3,6 +3,9 @@
     {
       "source": "functions",
       "codebase": "default",
+      "predeploy": [
+        "source functions/venv/bin/activate && python3.11 -m pip install -r functions/requirements.txt"
+      ],
       "ignore": [
         "functions/venv",
         ".git",
